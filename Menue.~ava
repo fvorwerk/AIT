@@ -1,0 +1,67 @@
+import java.util.*;
+public class Menue {
+  public static void main (String[] args) {
+    
+    System.out.println("________________________________________________________________");
+    System.out.println(" __   __  _______  ______    _______  __   __  _______  _______ ");
+    System.out.println("|  | |  ||   _   ||    _ |  |   _   ||  |_|  ||  _    ||       |");
+    System.out.println("|  |_|  ||  |_|  ||   | ||  |  |_|  ||       || |_|   ||    ___|");
+    System.out.println("|       ||       ||   |_||_ |       ||       ||       ||   |___ ");
+    System.out.println("|       ||       ||    __  ||       ||       ||  _   | |    ___|");
+    System.out.println("|   _   ||   _   ||   |  | ||   _   || ||_|| || |_|   ||   |___ ");
+    System.out.println("|__| |__||__|_|__||___|__|_||__|_|__||_|   |_||_______||_______|");
+    System.out.println("________________________________________________________________");
+    
+    System.out.println("Bitte geben Sie Ihren Namen ein");
+    Scanner names = new Scanner(System.in);
+    String name = names.next();
+    clear();
+    System.out.println("Bitte geben Sie Ihr Alter ein");
+    Scanner alters = new Scanner(System.in);
+    int alter = alters.nextInt();
+    clear();
+    System.out.println("Bitte geben Sie Ihr Geschelcht an");
+    System.out.println("1 = Weiblich; 2 = Männlich; 3 = Apache Kampfhelikopter");
+    Scanner geschlechts = new Scanner(System.in);
+    int geschlecht = geschlechts.nextInt();
+    clear();
+    
+    String begruessung = "";
+    
+    if (alter > 18) {
+      begruessung = begruessung + "Guten Tag ";
+      if  (geschlecht == 1) {
+        begruessung = begruessung + "Frau ";
+        begruessung = begruessung + name;
+        
+      } else if (geschlecht == 2) {
+        begruessung = begruessung + "Herr ";
+        begruessung = begruessung + name;
+      }
+      else if (geschlecht == 3) {
+        clear();
+        System.out.println("SUCH DIR 'N JOB!");
+        System.exit(0);
+      }
+    } else  {
+      begruessung = begruessung + "Hallo ";
+      begruessung = begruessung + name;
+    } // end of if
+    
+    
+    // end of if
+    
+    System.out.println(begruessung);
+    
+    
+    
+  }
+  
+  public static void clear(){
+    for (int j = 0; j < 100  ; j++ ) {
+      System.out.println("");
+      
+    } // end of for
+  } 
+  
+}

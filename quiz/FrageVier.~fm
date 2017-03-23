@@ -1,0 +1,50 @@
+object frageVier: TFGUIForm
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'FrageVier'
+  ClientHeight = 262
+  ClientWidth = 284
+  Color = clWhite
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -10
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = True
+  Position = poDesigned
+  Visible = True
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnResize = FormResize
+  FrameType = 2
+  Resizable = False
+  Undecorated = False
+  Background = clWhite
+  PixelsPerInch = 96
+  TextHeight = 13
+  object jLabel1: TJLabel
+    Tag = 1
+    Left = 8
+    Top = 8
+    Width = 275
+    Height = 41
+    Hint = 'jLabel1'
+    Foreground = clWindowText
+    Background = clBtnFace
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -24
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    Text = '&&& || '#8364
+    HorizontalAlignment = LEFT
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = RIGHT
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    DisplayedMnemonic = 0
+    DisplayedMnemonicIndex = 0
+  end
+end
