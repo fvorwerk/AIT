@@ -28,7 +28,9 @@ public class TicTacToe extends JFrame {
   // Ende Attribute
   
   int counter = 0;
-  int[] buttons = new int[9];
+  int[] auswahl = {8,8,8,8,8,8,8,8,8};
+  int[] buttons = {8,8,8,8,8,8,8,8,8};
+  
   
   public TicTacToe(String title) { 
     // Frame-Initialisierung
@@ -218,18 +220,22 @@ public class TicTacToe extends JFrame {
   
   public void jButton4_ActionPerformed(ActionEvent evt) {
     jButton4.setFont(new Font("Dialog", Font.BOLD, 72));
-    if (counter %2 == 0) {
-      jButton4.setBackground(Color.RED);
-      jButton4.setText("X");
-      buttons[3] = 0; 
-      
-    } else {
-      jButton4.setBackground(Color.GREEN);
-      jButton4.setText("O");
-      buttons[3] = 1; 
-    } // end of if-else
-    counter++;
-    jButton4.setEnabled(false);
+       counter++;
+    setzen(jButton4, auswahl, counter, 3);
+    if (auswerten(auswahl, counter) == 1) {
+      //this.dispose(); 
+      //new RedWins("Red Wins");
+    } 
+    if (auswerten(auswahl, counter) == 2) {
+     // this.dispose();
+     // new YellowWins("Yellow Wins"); 
+    }
+    if (auswerten(auswahl, counter) == 3) {
+      //this.dispose();
+      //new Draw("Draw");
+    }
+    
+   
     // TODO hier Quelltext einfügen
   } // end of jButton4_ActionPerformed
   
@@ -338,10 +344,88 @@ public class TicTacToe extends JFrame {
     // TODO hier Quelltext einfügen
   } // end of jButton11_ActionPerformed
   
-  if (buttons [0] == 0 && buttons [1] == 0 && buttons [2] == 0 || ) {
-    
-  } // end of if
   
+  
+  public void setzen( JButton button,int[] auswahl, int counter, int position){
+    if (counter%2 == 0) {
+      button.setBackground(Color.RED);
+      button.setText("X");
+      auswahl[position]=0;
+    } else{
+      button.setBackground(Color.GREEN);
+      button.setText("O");
+      auswahl[position]=1;
+    } 
+    button.setEnabled(false);
+  }
+  
+  
+  
+  public int auswerten(int[] auswahl, int counter){
+  //erste Reihe
+  if (auswahl[0] == 0 && auswahl[1] == 0 && auswahl[2] == 0) {
+    return 1;
+  } 
+  if (auswahl[0] == 1 && auswahl[1] == 1 && auswahl[2] == 1) {
+    return 2;
+  } 
+  //zweite Reihe
+  if (auswahl[3] == 0 && auswahl[4] == 0 && auswahl[5] == 0) {
+    return 1;
+  } 
+  if (auswahl[3] == 1 && auswahl[4] == 1 && auswahl[5] == 1) {
+    return 2;
+  } 
+  //dritte Reihe
+  if (auswahl[6] == 0 && auswahl[7] == 0 && auswahl[8] == 0) {
+    return 1;
+  } 
+  if (auswahl[6] == 1 && auswahl[7] == 1 && auswahl[8] == 1) {
+    return 2;
+  } 
+  //erste Spalte
+  if (auswahl[0] == 0 && auswahl[3] == 0 && auswahl[6] == 0) {
+    return 1;
+  } 
+  if (auswahl[0] == 1 && auswahl[3] == 1 && auswahl[6] == 1) {
+    return 2;
+  } 
+  //zweite Spalte
+  if (auswahl[1] == 0 && auswahl[4] == 0 && auswahl[7] == 0) {
+    return 1;
+  } 
+  if (auswahl[1] == 1 && auswahl[4] == 1 && auswahl[7] == 1) {
+    return 2;
+  } 
+  //dritte Spalte
+  if (auswahl[2] == 0 && auswahl[5] == 0 && auswahl[8] == 0) {
+    return 1;
+  } 
+  if (auswahl[2] == 1 && auswahl[5] == 1 && auswahl[8] == 1) {
+    return 2;
+  }
+  //diagonal r->l
+  if (auswahl[2] == 0 && auswahl[4] == 0 && auswahl[6] == 0) {
+    return 1;
+  } 
+  if (auswahl[2] == 1&& auswahl[4] == 1&& auswahl[6] == 1) {
+    return 2;
+  }
+  //diagonal l->r
+  if (auswahl[0]  == 0&& auswahl[4] == 0 && auswahl[8] == 0) {
+    return 1;
+  } 
+  if (auswahl[0] == 1 && auswahl[4] == 1 && auswahl[8] == 1) {
+    return 2;
+  }
+  //unentschieden
+  else if (counter==9) {
+    return 3;
+  } 
+  else {
+    return 10;
+  } 
+  }
   
 
   // Ende Methoden
